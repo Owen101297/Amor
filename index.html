@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Para Ti, Amor</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 20px;
+      background: linear-gradient(45deg, #ffdde1, #ee9ca7, #ffdde1);
+      background-size: 300% 300%;
+      overflow-x: hidden;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      color: #fff;
+      animation: gradientShift 8s ease infinite;
+      position: relative;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .container {
+      text-align: center;
+      max-width: 800px;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      animation: fadeInUp 1.5s ease-out;
+    }
+
+    h1 {
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 0.15em solid white;
+      animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
+      max-width: 100%;
+      margin-bottom: 30px;
+      opacity: 0;
+      animation-fill-mode: forwards;
+      animation-delay: 0.5s;
+    }
+
+    @keyframes typing {
+      from { width: 0; opacity: 1; }
+      to { width: 100%; opacity: 1; }
+    }
+
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: white }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 15px 30px;
+      font-size: 1.1em;
+      font-weight: 600;
+      background: linear-gradient(45deg, #ff6b6b, #ee9ca7);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 8px 25px rgba(238, 156, 167, 0.4);
+      transition: all 0.3s ease;
+      animation: pulse 2s infinite, fadeInUp 1s ease-out 1s forwards;
+      opacity: 0;
+    }
+
+    button:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 12px 35px rgba(238, 156, 167, 0.6);
+      background: linear-gradient(45deg, #ff5252, #ff8a8a);
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 8px 25px rgba(238, 156, 167, 0.4);
+      }
+      50% {
+        transform: scale(1.05);
+        box-shadow: 0 12px 35px rgba(238, 156, 167, 0.6);
+      }
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: linear-gradient(45deg, #ff6b6b, #ff5252);
+      transform: rotate(45deg);
+      animation: float 6s ease-in-out infinite;
+      z-index: -1;
+      border-radius: 50% 50% 0 0;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: linear-gradient(45deg, #ff6b6b, #ff5252);
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(45deg) scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: translateY(-50vh) rotate(90deg) scale(1.2);
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(-100vh) rotate(135deg) scale(0.8);
+        opacity: 0;
+      }
+    }
+
+    .floating-particle {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      animation: floatParticle 15s linear infinite;
+      z-index: -2;
+    }
+
+    @keyframes floatParticle {
+      0% {
+        transform: translateY(100vh) translateX(0) scale(0.5);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.7;
+      }
+      90% {
+        opacity: 0.7;
+      }
+      100% {
+        transform: translateY(-100vh) translateX(100px) scale(1);
+        opacity: 0;
+      }
+    }
+
+    .love-message {
+      margin-top: 20px;
+      font-size: 1.2em;
+      opacity: 0;
+      animation: fadeIn 2s ease-in-out 3s forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+<h1>Mi amor, sé que estás estresada... No te estreses 😊</h1>
+    <button onclick="launchHearts()">Haz clic para sentir mi amor</button>
+    <div class="love-message">Eres lo más importante en mi vida ❤️</div>
+    <div id="stress-message" style="margin-top: 20px; font-size: 1.3em; color: #fff; opacity: 0; transition: opacity 0.5s;">No te estreses 😊</div>
+<img id="imagen" src="imagen.jpg" alt="Imagen" style="display:none; max-width: 300px; margin: 20px auto 0 auto; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);" />
+  </div>
+
+  <script>
+    // Create background floating particles
+    function createParticles() {
+      for (let i = 0; i < 20; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'floating-particle';
+        particle.style.left = Math.random() * window.innerWidth + 'px';
+        particle.style.width = Math.random() * 10 + 5 + 'px';
+        particle.style.height = particle.style.width;
+        particle.style.animationDelay = Math.random() * 15 + 's';
+        particle.style.animationDuration = Math.random() * 10 + 15 + 's';
+        document.body.appendChild(particle);
+      }
+    }
+
+    // Enhanced hearts animation and show stress message
+    function launchHearts() {
+      for (let i = 0; i < 50; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.style.left = Math.random() * window.innerWidth + 'px';
+        heart.style.top = window.innerHeight + 'px';
+        heart.style.width = Math.random() * 30 + 15 + 'px';
+        heart.style.height = heart.style.width;
+        heart.style.animationDuration = Math.random() * 4 + 4 + 's';
+        heart.style.animationDelay = Math.random() * 2 + 's';
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 10000);
+      }
+      // Show the stress message with fade-in
+      const stressMsg = document.getElementById('stress-message');
+      stressMsg.style.opacity = '1';
+      // Show the image
+      const img = document.getElementById('imagen');
+      img.style.display = 'block';
+      setTimeout(() => {
+        stressMsg.style.opacity = '0';
+        img.style.display = 'none';
+      }, 4000);
+    }
+
+    // Initialize on page load
+    window.addEventListener('load', function() {
+      createParticles();
+      
+      // Add continuous floating hearts in background
+      setInterval(() => {
+        if (Math.random() > 0.7) {
+          const heart = document.createElement('div');
+          heart.className = 'heart';
+          heart.style.left = Math.random() * window.innerWidth + 'px';
+          heart.style.top = window.innerHeight + 'px';
+          heart.style.width = Math.random() * 20 + 10 + 'px';
+          heart.style.height = heart.style.width;
+          heart.style.animationDuration = Math.random() * 3 + 6 + 's';
+          heart.style.opacity = '0.6';
+          document.body.appendChild(heart);
+
+          setTimeout(() => heart.remove(), 10000);
+        }
+      }, 2000);
+    });
+
+    // Responsive adjustments
+    window.addEventListener('resize', function() {
+      document.querySelectorAll('.floating-particle').forEach(particle => particle.remove());
+      createParticles();
+    });
+  </script>
+</body>
+</html>
